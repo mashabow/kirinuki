@@ -15,11 +15,18 @@
     "react-scripts": "3.3.1",
     "typescript": "~3.7.2"
   },
+  "devDependencies": {
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --format codeFrame src/**.{ts,tsx}",
+    "eslint-check": "eslint --print-config src/index.tsx | eslint-config-prettier-check"
   },
   "eslintConfig": {
     "extends": "react-app"
