@@ -5,17 +5,22 @@ import './App.css';
 
 const App = () => {
   const cropper = useRef();
+  const previewClassName = 'Preview';
 
   return (
     <div className="App">
       <Cropper
+        className="Cropper"
         ref={cropper.current}
         src="/daiji001.jpg"
-        style={{ height: '100vh', width: '80vw' }}
         // Cropper.js options
+        preview={`.${previewClassName}`}
         dragMode="move"
         toggleDragModeOnDblclick={false}
       />
+      <div className="Sidebar">
+        <div className={previewClassName} />
+      </div>
     </div>
   );
 };
