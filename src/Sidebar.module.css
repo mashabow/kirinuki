@@ -1,6 +1,10 @@
+.PreviewWrapper {
+  height: 30vh;
+}
+
 .Preview {
   width: 100%;
-  height: 40vh;
+  height: 100%;
   margin: auto;
   overflow: hidden;
 }

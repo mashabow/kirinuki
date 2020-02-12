@@ -14,7 +14,10 @@ interface Props {
 const Sidebar = ({ onAngleChange }: Props) => {
   return (
     <>
-      <div className={styles.Preview} />
+      {/* プレビュー領域の高さを固定するためにはラッパーが必要 */}
+      <div className={styles.PreviewWrapper}>
+        <div className={styles.Preview} />
+      </div>
       <Slider
         min={-10}
         max={10}
