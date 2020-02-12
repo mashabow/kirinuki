@@ -1,19 +1,16 @@
-import { Layout, Slider } from 'antd';
-import React, { useRef, useState, useCallback } from 'react';
+import { Layout } from 'antd';
+import React, { useRef, useCallback } from 'react';
 import Cropper from 'react-cropper';
 import 'antd/dist/antd.css';
 import 'cropperjs/dist/cropper.css';
 import './App.css';
+import Sidebar, { previewClassName } from './Sidebar';
 
 const { Content, Sider } = Layout;
 
 const App = () => {
   const cropper = useRef<Cropper | null>(null);
-  const previewClassName = 'Preview';
-
-  const [angle, setAngle] = useState(0);
-  const updateAngle = useCallback(value => {
-    setAngle(value);
+  const onAngleChange = useCallback(value => {
     if (cropper.current) {
       cropper.current.rotateTo(value);
     }
@@ -35,14 +32,7 @@ const App = () => {
         />
       </Content>
       <Sider width={300} className="Sider" theme="light">
-        <div className={previewClassName} />
-        <Slider
-          min={-10}
-          max={10}
-          step={0.1}
-          value={angle}
-          onChange={updateAngle}
-        />
+        <Sidebar onAngleChange={onAngleChange}></Sidebar>
       </Sider>
     </Layout>
   );
