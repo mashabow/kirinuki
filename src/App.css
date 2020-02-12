@@ -1,16 +1,10 @@
-.App {
-  display: flex;
-}
-
 .Cropper {
-  width: 70vw;
   height: 100vh;
   overflow: hidden;
 }
 
-.Sidebar {
+.Sider {
   padding: 15px;
-  width: 30vw;
 }
 
 .Preview {
