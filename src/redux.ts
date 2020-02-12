@@ -1,22 +1,9 @@
 import { combineReducers } from 'redux';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const cropSlice = createSlice({
-  name: 'crop',
-  initialState: {
-    angle: 0,
-  },
-  reducers: {
-    setAngle: (state, action: PayloadAction<number>) => {
-      state.angle = action.payload;
-    },
-  },
-});
-
-export const { setAngle } = cropSlice.actions;
+import crop from './features/crop';
 
 const rootReducer = combineReducers({
-  crop: cropSlice.reducer,
+  crop,
 });
 
 export default rootReducer;

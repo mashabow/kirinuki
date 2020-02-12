@@ -4,7 +4,7 @@ import React, { useCallback } from 'react';
 
 import styles from './Sidebar.module.css';
 import { useDispatch } from 'react-redux';
-import { setAngle } from './redux';
+import { setAngle } from '../features/crop';
 
 export const previewClassName = styles.Preview;
 
