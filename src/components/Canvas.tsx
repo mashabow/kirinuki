@@ -10,8 +10,10 @@ interface Props {
 }
 
 const Canvas = ({ previewClassName }: Props) => {
+  const src = useSelector(state => state.sourceImage.url ?? undefined);
+
   const cropper = useRef<Cropper | null>(null);
-  const angle = useSelector(state => state.crop.angle);
+  const angle = useSelector(state => state.sourceImage.angle);
   useEffect(() => {
     if (cropper.current) {
       cropper.current.rotateTo(angle);
@@ -24,7 +26,7 @@ const Canvas = ({ previewClassName }: Props) => {
       ref={c => {
         cropper.current = c;
       }}
-      src="/daiji001.jpg"
+      src={src}
       // Cropper.js options
       preview={`.${previewClassName}`}
       dragMode="move"

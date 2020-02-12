@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import crop from './features/crop';
+import sourceImage from './features/sourceImage';
 
 const rootReducer = combineReducers({
-  crop,
+  sourceImage,
 });
 
 export default rootReducer;
