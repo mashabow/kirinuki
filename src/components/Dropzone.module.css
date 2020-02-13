@@ -1,0 +1,17 @@
+.Root {
+  height: 100vh;
+}
+
+.Empty {
+  cursor: pointer;
+  /* 領域を目一杯広げて中央にコンテンツを配置 */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Icon {
+  font-size: 70px;
+  opacity: 0.6;
+}
