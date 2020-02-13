@@ -3,8 +3,9 @@ import { SliderValue } from 'antd/lib/slider';
 import React, { useCallback } from 'react';
 
 import styles from './Sidebar.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setAngle } from '../features/sourceImage';
+import CropList from './CropList';
 
 export const previewClassName = styles.Preview;
 
@@ -21,8 +22,6 @@ const Sidebar = () => {
     [dispatch],
   );
 
-  const crops = useSelector(state => state.crops);
-
   return (
     <>
       {/* プレビュー領域の高さを固定するためにはラッパーが必要 */}
@@ -38,7 +37,7 @@ const Sidebar = () => {
         tipFormatter={angleFormatter}
         tooltipPlacement="bottom"
       />
-      {JSON.stringify(crops)}
+      <CropList />
     </>
   );
 };
