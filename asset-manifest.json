@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/kirinuki/static/css/main.d376a8a2.chunk.css",
+    "main.js": "/kirinuki/static/js/main.1051ebcd.chunk.js",
+    "main.js.map": "/kirinuki/static/js/main.1051ebcd.chunk.js.map",
+    "runtime-main.js": "/kirinuki/static/js/runtime-main.a60b5f55.js",
+    "runtime-main.js.map": "/kirinuki/static/js/runtime-main.a60b5f55.js.map",
+    "static/css/2.dccc8f69.chunk.css": "/kirinuki/static/css/2.dccc8f69.chunk.css",
+    "static/js/2.aeea3608.chunk.js": "/kirinuki/static/js/2.aeea3608.chunk.js",
+    "static/js/2.aeea3608.chunk.js.map": "/kirinuki/static/js/2.aeea3608.chunk.js.map",
+    "index.html": "/kirinuki/index.html",
+    "precache-manifest.8dfd74d5f1e006f8ac22a1ff4a69bb30.js": "/kirinuki/precache-manifest.8dfd74d5f1e006f8ac22a1ff4a69bb30.js",
+    "service-worker.js": "/kirinuki/service-worker.js",
+    "static/css/2.dccc8f69.chunk.css.map": "/kirinuki/static/css/2.dccc8f69.chunk.css.map",
+    "static/css/main.d376a8a2.chunk.css.map": "/kirinuki/static/css/main.d376a8a2.chunk.css.map",
+    "static/js/2.aeea3608.chunk.js.LICENSE.txt": "/kirinuki/static/js/2.aeea3608.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a60b5f55.js",
+    "static/css/2.dccc8f69.chunk.css",
+    "static/js/2.aeea3608.chunk.js",
+    "static/css/main.d376a8a2.chunk.css",
+    "static/js/main.1051ebcd.chunk.js"
+  ]
+}
