@@ -1,30 +1,31 @@
-import React, { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
 
 import styles from './Canvas.module.css';
 
 interface Props {
+  readonly cropperRef: React.MutableRefObject<Cropper | null>;
   readonly previewClassName: string;
 }
 
-const Canvas = ({ previewClassName }: Props) => {
+const Canvas = ({ cropperRef, previewClassName }: Props) => {
   const src = useSelector(state => state.sourceImage.url ?? undefined);
 
-  const cropper = useRef<Cropper | null>(null);
+  const dispatch = useDispatch();
   const angle = useSelector(state => state.sourceImage.angle);
   useEffect(() => {
-    if (cropper.current) {
-      cropper.current.rotateTo(angle);
+    if (cropperRef.current) {
+      cropperRef.current.rotateTo(angle);
     }
-  }, [angle]);
+  }, [angle, cropperRef, dispatch]);
 
   return (
     <Cropper
       className={styles.Cropper}
       ref={c => {
-        cropper.current = c;
+        cropperRef.current = c;
       }}
       src={src}
       // Cropper.js options
