@@ -6,6 +6,7 @@
 }
 
 .Crop {
+  position: relative;
   width: 88px;
   height: 88px;
   background-color: #eee;
@@ -15,4 +16,23 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.DeleteIcon {
+  position: absolute;
+  right: 0;
+  padding: 5px;
+  background-color: #fffc;
+  cursor: pointer;
+
+  transition: opacity 0.1s, color 0.1s;
+  opacity: 0;
+}
+
+.Crop:hover .DeleteIcon {
+  opacity: 1;
+}
+
+.DeleteIcon:hover {
+  color: #e02;
 }
