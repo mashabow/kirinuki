@@ -29,6 +29,7 @@ const Canvas = ({ cropperRef, previewClassName }: Props) => {
       }}
       src={src}
       // Cropper.js options
+      autoCropArea={0.2}
       preview={`.${previewClassName}`}
       dragMode="move"
       toggleDragModeOnDblclick={false}
