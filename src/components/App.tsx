@@ -21,7 +21,7 @@ const App = () => {
           <Canvas cropperRef={cropperRef} previewClassName={previewClassName} />
         </Dropzone>
       </Content>
-      <Sider width={300} className={styles.Sider} theme="light">
+      <Sider width={320} className={styles.Sider} theme="light">
         <Sidebar></Sidebar>
       </Sider>
     </Layout>

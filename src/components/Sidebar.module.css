@@ -5,7 +5,10 @@
 }
 
 .PreviewWrapper {
+  display: flex; /* 画像を上下中央に表示 */
   height: 280px;
+  margin: 30px 0 45px;
+  background-color: var(--image-background-color);
 }
 
 .Preview {
