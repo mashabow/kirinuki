@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/kirinuki/static/css/main.c305fd9a.chunk.css",
-    "main.js": "/kirinuki/static/js/main.061a0c42.chunk.js",
-    "main.js.map": "/kirinuki/static/js/main.061a0c42.chunk.js.map",
+    "main.css": "/kirinuki/static/css/main.c4706f04.chunk.css",
+    "main.js": "/kirinuki/static/js/main.b882485d.chunk.js",
+    "main.js.map": "/kirinuki/static/js/main.b882485d.chunk.js.map",
     "runtime-main.js": "/kirinuki/static/js/runtime-main.a60b5f55.js",
     "runtime-main.js.map": "/kirinuki/static/js/runtime-main.a60b5f55.js.map",
     "static/css/2.dccc8f69.chunk.css": "/kirinuki/static/css/2.dccc8f69.chunk.css",
     "static/js/2.56ca88b3.chunk.js": "/kirinuki/static/js/2.56ca88b3.chunk.js",
     "static/js/2.56ca88b3.chunk.js.map": "/kirinuki/static/js/2.56ca88b3.chunk.js.map",
     "index.html": "/kirinuki/index.html",
-    "precache-manifest.c7a66ebdb6794ec4dcf25f3253ead1ba.js": "/kirinuki/precache-manifest.c7a66ebdb6794ec4dcf25f3253ead1ba.js",
+    "precache-manifest.c86d96bef07a8d0f55fd3db0dd67078c.js": "/kirinuki/precache-manifest.c86d96bef07a8d0f55fd3db0dd67078c.js",
     "service-worker.js": "/kirinuki/service-worker.js",
     "static/css/2.dccc8f69.chunk.css.map": "/kirinuki/static/css/2.dccc8f69.chunk.css.map",
-    "static/css/main.c305fd9a.chunk.css.map": "/kirinuki/static/css/main.c305fd9a.chunk.css.map",
+    "static/css/main.c4706f04.chunk.css.map": "/kirinuki/static/css/main.c4706f04.chunk.css.map",
     "static/js/2.56ca88b3.chunk.js.LICENSE.txt": "/kirinuki/static/js/2.56ca88b3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a60b5f55.js",
     "static/css/2.dccc8f69.chunk.css",
     "static/js/2.56ca88b3.chunk.js",
-    "static/css/main.c305fd9a.chunk.css",
-    "static/js/main.061a0c42.chunk.js"
+    "static/css/main.c4706f04.chunk.css",
+    "static/js/main.b882485d.chunk.js"
   ]
 }
