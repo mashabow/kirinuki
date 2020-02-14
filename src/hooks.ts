@@ -13,10 +13,9 @@ export const useEnterToCrop = (
       if (cropper && event.key === 'Enter') {
         const { x, y, width, height, rotate } = cropper.getData();
         const canvas = cropper.getCroppedCanvas({
-          width: 100,
-          height: 100,
-          maxWidth: 100,
-          maxHeight: 100,
+          // サムネイルで表示する領域の数倍のサイズにしておかないと、画質が落ちてしまう
+          width: 300,
+          height: 300,
         });
         const blob = await new Promise(resolve => canvas.toBlob(resolve));
 
