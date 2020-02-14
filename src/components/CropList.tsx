@@ -7,11 +7,13 @@ const CropList: React.FC = () => {
   const crops = useSelector(state => state.crops);
 
   return (
-    <>
+    <div className={styles.CropList}>
       {crops.map((crop, i) => (
-        <img className={styles.Thumbnail} key={i} src={crop.thumbnail} alt="" />
+        <div key={i} className={styles.Crop}>
+          <img className={styles.Thumbnail} src={crop.thumbnail} alt="" />
+        </div>
       ))}
-    </>
+    </div>
   );
 };
 
