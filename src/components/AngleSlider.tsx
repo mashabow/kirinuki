@@ -1,7 +1,7 @@
 import { Slider } from 'antd';
 import { SliderValue } from 'antd/lib/slider';
 import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { setAngle } from '../features/sourceImage';
 
@@ -10,6 +10,8 @@ import styles from './AngleSlider.module.css';
 const formatter = (angle: number) => `${angle.toFixed(1)}°`;
 
 const AngleSlider: React.FC = () => {
+  const hasImage = useSelector(state => Boolean(state.sourceImage.url));
+
   const dispatch = useDispatch();
   const onChange = useCallback(
     (value: SliderValue) => {
@@ -23,6 +25,7 @@ const AngleSlider: React.FC = () => {
   return (
     <Slider
       className={styles.AngleSlider}
+      disabled={!hasImage}
       min={-10}
       max={10}
       step={0.1}
