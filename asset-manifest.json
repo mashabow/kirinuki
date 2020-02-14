@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/kirinuki/static/css/main.3a9cd82a.chunk.css",
-    "main.js": "/kirinuki/static/js/main.69cda5d7.chunk.js",
-    "main.js.map": "/kirinuki/static/js/main.69cda5d7.chunk.js.map",
+    "main.js": "/kirinuki/static/js/main.1ff14c3b.chunk.js",
+    "main.js.map": "/kirinuki/static/js/main.1ff14c3b.chunk.js.map",
     "runtime-main.js": "/kirinuki/static/js/runtime-main.a60b5f55.js",
     "runtime-main.js.map": "/kirinuki/static/js/runtime-main.a60b5f55.js.map",
     "static/css/2.dccc8f69.chunk.css": "/kirinuki/static/css/2.dccc8f69.chunk.css",
     "static/js/2.670be28c.chunk.js": "/kirinuki/static/js/2.670be28c.chunk.js",
     "static/js/2.670be28c.chunk.js.map": "/kirinuki/static/js/2.670be28c.chunk.js.map",
     "index.html": "/kirinuki/index.html",
-    "precache-manifest.62b9874ccf4419d22f2a630d07f5c34f.js": "/kirinuki/precache-manifest.62b9874ccf4419d22f2a630d07f5c34f.js",
+    "precache-manifest.25a8c35e5da8fa062945a04eb124af01.js": "/kirinuki/precache-manifest.25a8c35e5da8fa062945a04eb124af01.js",
     "service-worker.js": "/kirinuki/service-worker.js",
     "static/css/2.dccc8f69.chunk.css.map": "/kirinuki/static/css/2.dccc8f69.chunk.css.map",
     "static/css/main.3a9cd82a.chunk.css.map": "/kirinuki/static/css/main.3a9cd82a.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.dccc8f69.chunk.css",
     "static/js/2.670be28c.chunk.js",
     "static/css/main.3a9cd82a.chunk.css",
-    "static/js/main.69cda5d7.chunk.js"
+    "static/js/main.1ff14c3b.chunk.js"
   ]
 }
