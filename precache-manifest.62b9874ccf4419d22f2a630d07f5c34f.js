@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a35aa8c245a266125fb5fc7c3f65b921",
+    "revision": "024621dfdb67f6eab6be262ee6d32886",
     "url": "/kirinuki/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kirinuki/static/css/2.dccc8f69.chunk.css"
   },
   {
-    "revision": "6ea7477da0ba5f3985fc",
+    "revision": "7728e2d14ba455a4c0c0",
     "url": "/kirinuki/static/css/main.3a9cd82a.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kirinuki/static/js/2.670be28c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6ea7477da0ba5f3985fc",
-    "url": "/kirinuki/static/js/main.a4220555.chunk.js"
+    "revision": "7728e2d14ba455a4c0c0",
+    "url": "/kirinuki/static/js/main.69cda5d7.chunk.js"
   },
   {
     "revision": "fa2d0377f0cdd0373358",
