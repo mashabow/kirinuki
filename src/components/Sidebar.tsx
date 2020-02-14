@@ -23,7 +23,7 @@ const Sidebar = () => {
   );
 
   return (
-    <>
+    <div className={styles.Sidebar}>
       {/* プレビュー領域の高さを固定するためにはラッパーが必要 */}
       <div className={styles.PreviewWrapper}>
         <div className={styles.Preview} />
@@ -37,8 +37,8 @@ const Sidebar = () => {
         tipFormatter={angleFormatter}
         tooltipPlacement="bottom"
       />
-      <CropList />
-    </>
+      <CropList className={styles.CropList} />
+    </div>
   );
 };
 
