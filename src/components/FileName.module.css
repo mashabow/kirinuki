@@ -1,0 +1,16 @@
+.FileName {
+  position: absolute !important;
+  bottom: 0;
+  padding: 2px 7px;
+  background-color: #fff7;
+  font-size: 0.95em;
+  cursor: pointer;
+}
+
+.CloseIcon {
+  padding-left: 5px;
+}
+
+.FileName:hover .CloseIcon {
+  color: var(--danger-color);
+}

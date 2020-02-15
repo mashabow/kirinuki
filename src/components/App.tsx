@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useEnterToCrop } from '../hooks';
 import Sidebar, { previewClassName } from './Sidebar';
 import Canvas from './Canvas';
+import FileName from './FileName';
 import Dropzone from './Dropzone';
 import styles from './App.module.css';
 
@@ -21,7 +22,13 @@ const App = () => {
     <Layout>
       <Content className={styles.Content}>
         {hasImage ? (
-          <Canvas cropperRef={cropperRef} previewClassName={previewClassName} />
+          <>
+            <Canvas
+              cropperRef={cropperRef}
+              previewClassName={previewClassName}
+            />
+            <FileName />
+          </>
         ) : (
           <Dropzone />
         )}
