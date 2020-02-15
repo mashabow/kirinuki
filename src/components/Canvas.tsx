@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
 
+import { clearCrops } from '../features/crops';
 import { close } from '../features/sourceImage';
 import styles from './Canvas.module.css';
 
@@ -26,6 +27,7 @@ const Canvas = ({ cropperRef, previewClassName }: Props) => {
     if (!sourceImage.url) return;
     URL.revokeObjectURL(sourceImage.url);
     dispatch(close());
+    dispatch(clearCrops());
   }, [dispatch, sourceImage.url]);
 
   return (

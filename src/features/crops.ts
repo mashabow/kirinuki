@@ -27,8 +27,9 @@ const slice = createSlice({
     deleteCrop: (state, action: PayloadAction<number>) => {
       state.splice(action.payload, 1);
     },
+    clearCrops: () => initialState,
   },
 });
 
 export default slice.reducer;
-export const { addCrop, deleteCrop } = slice.actions;
+export const { addCrop, deleteCrop, clearCrops } = slice.actions;
