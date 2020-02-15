@@ -2,16 +2,17 @@ import { Button } from 'antd';
 import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
-import { download } from '../utils';
+import { basename, download } from '../utils';
 
 const DownloadButton = () => {
   const crops = useSelector(state => state.crops);
+  const sourceImageFileName = useSelector(state => state.sourceImage.fileName);
 
   const onClick = useCallback(() => {
     const json = JSON.stringify(crops, null, 2);
-    const file = new File([json], 'out.json', { type: 'application/json' });
-    download(file);
-  }, [crops]);
+    const fileName = `${basename(sourceImageFileName!)}.json`;
+    download(new File([json], fileName, { type: 'application/json' }));
+  }, [crops, sourceImageFileName]);
 
   return (
     <Button

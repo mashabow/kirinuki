@@ -1,9 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState: {
+interface State {
+  readonly fileName: string | null;
   readonly url: string | null;
   readonly angle: number;
-} = {
+}
+
+const initialState: State = {
+  fileName: null,
   url: null,
   angle: 0,
 };
@@ -12,8 +16,11 @@ const slice = createSlice({
   name: 'sourceImage',
   initialState,
   reducers: {
-    setURL: (state, action: PayloadAction<string>) => {
-      state.url = action.payload;
+    open: (_, action: PayloadAction<Pick<State, 'fileName' | 'url'>>) => {
+      return {
+        ...action.payload,
+        angle: initialState.angle,
+      };
     },
     setAngle: (state, action: PayloadAction<number>) => {
       state.angle = action.payload;
@@ -22,4 +29,4 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
-export const { setURL, setAngle } = slice.actions;
+export const { open, setAngle } = slice.actions;

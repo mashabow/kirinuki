@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
-import { setURL } from '../features/sourceImage';
+import { open } from '../features/sourceImage';
 import { useDispatch, useSelector } from 'react-redux';
 import { Empty, Icon } from 'antd';
 
@@ -19,9 +19,10 @@ const Dropzone = ({ children }: Props) => {
     noClick: hasImage,
     noKeyboard: true,
     onDrop: acceptedFiles => {
-      if (acceptedFiles.length === 0) return;
-      const blobURL = URL.createObjectURL(acceptedFiles[0]);
-      dispatch(setURL(blobURL));
+      const file = acceptedFiles[0];
+      if (!acceptedFiles) return;
+      const blobURL = URL.createObjectURL(file);
+      dispatch(open({ fileName: file.name, url: blobURL }));
     },
   });
 

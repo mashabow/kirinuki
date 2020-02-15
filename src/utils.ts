@@ -1,3 +1,5 @@
+export const basename = (s: string): string => s.substr(0, s.lastIndexOf('.'));
+
 export const download = (file: File): void => {
   const blobURL = URL.createObjectURL(file);
 
