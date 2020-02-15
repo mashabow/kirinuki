@@ -2,6 +2,7 @@ import React from 'react';
 
 import CropList from './CropList';
 import AngleSlider from './AngleSlider';
+import DownloadButton from './DownloadButton';
 import styles from './Sidebar.module.css';
 
 export const previewClassName = styles.Preview;
@@ -15,6 +16,7 @@ const Sidebar = () => {
         <div className={styles.Preview} />
       </div>
       <CropList className={styles.CropList} />
+      <DownloadButton />
     </div>
   );
 };

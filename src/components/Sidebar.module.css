@@ -19,6 +19,7 @@
 }
 
 .CropList {
+  margin-bottom: 20px;
   flex: 1 0 1px;
   overflow: auto;
 }
