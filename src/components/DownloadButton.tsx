@@ -9,7 +9,11 @@ const DownloadButton = () => {
   const sourceImageFileName = useSelector(state => state.sourceImage.fileName);
 
   const onClick = useCallback(() => {
-    const json = JSON.stringify(crops, null, 2);
+    const json = JSON.stringify(
+      crops.map(c => c.params),
+      null,
+      2,
+    );
     const fileName = `${basename(sourceImageFileName!)}.json`;
     download(new File([json], fileName, { type: 'application/json' }));
   }, [crops, sourceImageFileName]);
@@ -21,7 +25,7 @@ const DownloadButton = () => {
       icon="download"
       onClick={onClick}
     >
-      ダウンロード
+      切り抜きデータをダウンロード
     </Button>
   );
 };
