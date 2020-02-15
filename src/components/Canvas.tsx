@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import { Icon } from 'antd';
+import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
 
+import { close } from '../features/sourceImage';
 import styles from './Canvas.module.css';
 
 interface Props {
@@ -11,29 +13,40 @@ interface Props {
 }
 
 const Canvas = ({ cropperRef, previewClassName }: Props) => {
-  const src = useSelector(state => state.sourceImage.url ?? undefined);
+  const sourceImage = useSelector(state => state.sourceImage);
 
   const dispatch = useDispatch();
-  const angle = useSelector(state => state.sourceImage.angle);
   useEffect(() => {
     if (cropperRef.current) {
-      cropperRef.current.rotateTo(angle);
+      cropperRef.current.rotateTo(sourceImage.angle);
     }
-  }, [angle, cropperRef, dispatch]);
+  }, [cropperRef, sourceImage.angle]);
+
+  const onFileNameClick = useCallback(() => {
+    if (!sourceImage.url) return;
+    URL.revokeObjectURL(sourceImage.url);
+    dispatch(close());
+  }, [dispatch, sourceImage.url]);
 
   return (
-    <Cropper
-      className={styles.Cropper}
-      ref={c => {
-        cropperRef.current = c;
-      }}
-      src={src}
-      // Cropper.js options
-      autoCropArea={0.2}
-      preview={`.${previewClassName}`}
-      dragMode="move"
-      toggleDragModeOnDblclick={false}
-    />
+    <>
+      <Cropper
+        className={styles.Cropper}
+        ref={c => {
+          cropperRef.current = c;
+        }}
+        src={sourceImage.url ?? undefined}
+        // Cropper.js options
+        autoCropArea={0.2}
+        preview={`.${previewClassName}`}
+        dragMode="move"
+        toggleDragModeOnDblclick={false}
+      />
+      <div className={styles.FileName} onClick={onFileNameClick}>
+        {sourceImage.fileName}
+        <Icon className={styles.CloseIcon} type="close-circle" />
+      </div>
+    </>
   );
 };
 

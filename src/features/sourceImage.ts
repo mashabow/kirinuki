@@ -16,12 +16,11 @@ const slice = createSlice({
   name: 'sourceImage',
   initialState,
   reducers: {
-    open: (_, action: PayloadAction<Pick<State, 'fileName' | 'url'>>) => {
-      return {
-        ...action.payload,
-        angle: initialState.angle,
-      };
-    },
+    open: (_, action: PayloadAction<Pick<State, 'fileName' | 'url'>>) => ({
+      ...action.payload,
+      angle: initialState.angle,
+    }),
+    close: () => initialState,
     setAngle: (state, action: PayloadAction<number>) => {
       state.angle = action.payload;
     },
@@ -29,4 +28,4 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
-export const { open, setAngle } = slice.actions;
+export const { open, close, setAngle } = slice.actions;
