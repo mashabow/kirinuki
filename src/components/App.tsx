@@ -1,6 +1,7 @@
 import { Layout } from 'antd';
 import React, { useRef } from 'react';
 import Cropper from 'react-cropper';
+import { useSelector } from 'react-redux';
 
 import { useEnterToCrop } from '../hooks';
 import Sidebar, { previewClassName } from './Sidebar';
@@ -14,12 +15,16 @@ const App = () => {
   const cropperRef = useRef<Cropper | null>(null);
   useEnterToCrop(cropperRef);
 
+  const hasImage = useSelector(state => Boolean(state.sourceImage.url));
+
   return (
     <Layout>
-      <Content>
-        <Dropzone>
+      <Content className={styles.Content}>
+        {hasImage ? (
           <Canvas cropperRef={cropperRef} previewClassName={previewClassName} />
-        </Dropzone>
+        ) : (
+          <Dropzone />
+        )}
       </Content>
       <Sider width={320} className={styles.Sider} theme="light">
         <Sidebar></Sidebar>

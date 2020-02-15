@@ -6,11 +6,7 @@ import { Empty, Icon } from 'antd';
 
 import styles from './Dropzone.module.css';
 
-interface Props {
-  readonly children: React.ReactElement;
-}
-
-const Dropzone = ({ children }: Props) => {
+const Dropzone = () => {
   const hasImage = useSelector(state => Boolean(state.sourceImage.url));
 
   const dispatch = useDispatch();
@@ -29,15 +25,11 @@ const Dropzone = ({ children }: Props) => {
   return (
     <div className={styles.Root} {...getRootProps()}>
       <input {...getInputProps()} />
-      {hasImage ? (
-        children
-      ) : (
-        <Empty
-          className={styles.Empty}
-          image={<Icon type="file-image" className={styles.Icon} />}
-          description="ここをクリック or ドロップして画像を開く"
-        />
-      )}
+      <Empty
+        className={styles.Empty}
+        image={<Icon type="file-image" className={styles.Icon} />}
+        description="ここをクリック or ドロップして画像を開く"
+      />
     </div>
   );
 };
