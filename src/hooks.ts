@@ -17,8 +17,9 @@ export const useEnterToCrop = (
           width: 300,
           height: 300,
         });
-        const blob = await new Promise(resolve => canvas.toBlob(resolve));
-
+        const blob = await new Promise(resolve =>
+          canvas.toBlob(resolve, 'image/jpeg', 0.7),
+        );
         dispatch(
           addCrop({
             params: { x, y, width, height, rotate },
