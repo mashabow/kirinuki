@@ -18,23 +18,30 @@ process.argv.slice(2).forEach(jsonFile => {
     process.exit(1);
   }
 
+  const inputFile = jsonFile.replace(jsonRE, '.jpg');
   const crops = JSON.parse(fs.readFileSync(jsonFile, 'utf8'));
-  crops.forEach(({ rotate, width, height, x, y }, i) => {
-    const inputFile = jsonFile.replace(jsonRE, '.jpg');
-    const outputFile = jsonFile.replace(
-      jsonRE,
-      `-${(i + 1).toString().padStart(2, '0')}.jpg`,
-    );
-    console.log(`${inputFile} -> ${outputFile}`);
+  const args = crops
+    .map(({ rotate, width, height, x, y }, i) => {
+      const outputFile = jsonFile.replace(
+        jsonRE,
+        `-${(i + 1).toString().padStart(2, '0')}.jpg`,
+      );
+      return [
+        '(',
+        '+clone',
+        '-rotate',
+        rotate,
+        '+repage', // 回転後の画像の左上を基準に crop するために必要
+        '-crop',
+        `${width}x${height}+${x}+${y}`,
+        '-write',
+        outputFile,
+        '+delete',
+        ')',
+      ];
+    })
+    .flat();
 
-    childProcess.execFileSync('magick', [
-      inputFile,
-      '-rotate',
-      rotate,
-      '+repage', // 回転後の画像の左上を基準に crop するために必要
-      '-crop',
-      `${width}x${height}+${x}+${y}`,
-      outputFile,
-    ]);
-  });
+  // `)` で終わるとエラーになるので、`null:` をつける
+  childProcess.execFileSync('magick', [inputFile, ...args, 'null:']);
 });
