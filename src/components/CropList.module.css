@@ -10,16 +10,28 @@
   width: 88px;
   height: 88px;
   background-color: var(--image-background-color);
+  display: flex;
+}
+
+.CropPreview {
+  /* display: none; だと切り抜き範囲が取れなくなってしまうので、その代わりに画面の外に出す */
+  position: absolute;
+  top: -1000px;
 }
 
 .Thumbnail {
+  margin: auto;
+  overflow: hidden;
+}
+
+.ThumbnailPreview {
   width: 100%;
   height: 100%;
-  object-fit: contain;
 }
 
 .DeleteIcon {
   position: absolute;
+  top: 0;
   right: 0;
   padding: 5px;
   background-color: #fffc;

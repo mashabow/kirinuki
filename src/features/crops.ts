@@ -12,7 +12,15 @@ interface CropParams {
 
 interface Crop {
   readonly params: CropParams;
-  readonly thumbnail: string;
+  readonly divStyle: {
+    readonly width: string;
+    readonly height: string;
+  };
+  readonly imgStyle: {
+    readonly width: string;
+    readonly height: string;
+    readonly transform: string;
+  };
 }
 
 const initialState: readonly Crop[] = [];

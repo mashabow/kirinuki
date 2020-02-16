@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 import { useEnterToCrop } from '../hooks';
 import Sidebar, { previewClassName } from './Sidebar';
+import { thumbnailPreviewClassName } from './CropList';
 import Canvas from './Canvas';
 import FileName from './FileName';
 import Dropzone from './Dropzone';
@@ -14,7 +15,7 @@ const { Content, Sider } = Layout;
 
 const App = () => {
   const cropperRef = useRef<Cropper | null>(null);
-  useEnterToCrop(cropperRef);
+  useEnterToCrop(cropperRef, thumbnailPreviewClassName);
 
   const hasImage = useSelector(state => Boolean(state.sourceImage.url));
 
@@ -25,7 +26,7 @@ const App = () => {
           <>
             <Canvas
               cropperRef={cropperRef}
-              previewClassName={previewClassName}
+              previews={[previewClassName, thumbnailPreviewClassName]}
             />
             <FileName />
           </>

@@ -7,10 +7,10 @@ import styles from './Canvas.module.css';
 
 interface Props {
   readonly cropperRef: React.MutableRefObject<Cropper | null>;
-  readonly previewClassName: string;
+  readonly previews: readonly string[];
 }
 
-const Canvas = ({ cropperRef, previewClassName }: Props) => {
+const Canvas = ({ cropperRef, previews }: Props) => {
   const sourceImage = useSelector(state => state.sourceImage);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Canvas = ({ cropperRef, previewClassName }: Props) => {
       src={sourceImage.url ?? undefined}
       // Cropper.js options
       autoCropArea={0.2}
-      preview={`.${previewClassName}`}
+      preview={previews.map(s => `.${s}`).join(', ')}
       dragMode="move"
       toggleDragModeOnDblclick={false}
     />
