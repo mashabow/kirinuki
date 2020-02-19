@@ -22,6 +22,10 @@
 
 master ブランチを更新すると、GitHub Actions によって自動でビルド／デプロイされます。
 
+## License
+
+MIT
+
 ## Author
 
 Masaya Nakamura ([@mashabow](https://github.com/mashabow))
