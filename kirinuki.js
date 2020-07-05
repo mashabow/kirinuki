@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Usage: kirinuki.sh foo.json [bar.json ...]
+// Usage: kirinuki.js foo.json [bar.json ...]
 //
 // 切り抜きデータ JSON から、実際に画像を切り抜く
 //
