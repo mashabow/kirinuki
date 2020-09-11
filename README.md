@@ -2,7 +2,7 @@
 
 1枚の画像から複数の矩形領域を切り抜く
 
-⚠️ 個人的な作業のために作った簡易的なアプリです
+[題字ペタペタ](https://daipeta.com)の作業用に作った簡易的なアプリです。
 
 ![screenshot](https://user-images.githubusercontent.com/6268183/74839933-718da080-5369-11ea-859b-face10bf36b4.png)
 
