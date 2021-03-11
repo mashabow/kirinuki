@@ -16,12 +16,29 @@ export const useKeyBindings = (
       if (!cropper) return;
 
       switch (event.key) {
+        // 画像移動
+        case 'ArrowLeft':
+          cropper.move(-1, 0);
+          break;
+        case 'ArrowRight':
+          cropper.move(1, 0);
+          break;
+        case 'ArrowUp':
+          cropper.move(0, -1);
+          break;
+        case 'ArrowDown':
+          cropper.move(0, 1);
+          break;
+
+        // 画像回転
         case 'z':
           dispatch(decreaseAngle());
           break;
         case 'x':
           dispatch(increaseAngle());
           break;
+
+        // 切り抜き
         case 'Enter': {
           const { x, y, width, height, rotate } = cropper.getData();
 
