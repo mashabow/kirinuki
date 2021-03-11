@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import Cropper from 'react-cropper';
 import { useSelector } from 'react-redux';
 
-import { useEnterToCrop } from '../hooks';
+import { useKeyBindings } from '../hooks';
 import Sidebar, { previewClassName } from './Sidebar';
 import { thumbnailPreviewClassName } from './CropList';
 import Canvas from './Canvas';
@@ -15,7 +15,7 @@ const { Content, Sider } = Layout;
 
 const App = () => {
   const cropperRef = useRef<Cropper | null>(null);
-  useEnterToCrop(cropperRef, thumbnailPreviewClassName);
+  useKeyBindings(cropperRef, thumbnailPreviewClassName);
 
   const hasImage = useSelector(state => Boolean(state.sourceImage.url));
 
