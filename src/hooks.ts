@@ -15,7 +15,7 @@ export const useKeyBindings = (
       const cropper = cropperRef.current;
       if (!cropper) return;
 
-      switch (event.key) {
+      switch (`${event.metaKey ? '⌘' : ''}${event.key}`) {
         // 画像移動
         case 'ArrowLeft':
           cropper.move(-1, 0);
@@ -36,6 +36,28 @@ export const useKeyBindings = (
           break;
         case 'x':
           dispatch(increaseAngle());
+          break;
+
+        // 範囲拡大・縮小
+        case '⌘ArrowLeft':
+          cropper.setCropBoxData({
+            width: cropper.getCropBoxData().width - 1,
+          });
+          break;
+        case '⌘ArrowRight':
+          cropper.setCropBoxData({
+            width: cropper.getCropBoxData().width + 1,
+          });
+          break;
+        case '⌘ArrowUp':
+          cropper.setCropBoxData({
+            height: cropper.getCropBoxData().height - 1,
+          });
+          break;
+        case '⌘ArrowDown':
+          cropper.setCropBoxData({
+            height: cropper.getCropBoxData().height + 1,
+          });
           break;
 
         // 切り抜き
