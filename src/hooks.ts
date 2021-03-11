@@ -2,44 +2,60 @@ import { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addCrop } from './features/crops';
+import { decreaseAngle, increaseAngle } from './features/sourceImage';
 
-export const useEnterToCrop = (
+export const useKeyBindings = (
   cropperRef: React.MutableRefObject<Cropper | null>,
   thumbnailPreviewClassName: string,
 ): void => {
   const dispatch = useDispatch();
+
   const handler = useCallback(
     (event: KeyboardEvent) => {
       const cropper = cropperRef.current;
-      if (!(cropper && event.key === 'Enter')) return;
-      const { x, y, width, height, rotate } = cropper.getData();
+      if (!cropper) return;
 
-      // 本来であれば cropper.getCropedCanvas() で画像データを直に取得したいところだが、
-      // soruceImage のサイズが大きすぎると、NS_ERROR_FAILURE というエラーが出るなどして、
-      // 取得に失敗することがある。
-      // そこで、サムネイルと同じ大きさのダミーのプレビュー thumbnailPreviewClassName を用意して、
-      // crop 時にそのスタイルを取得し、サムネイル表示に利用するようにする。
-      const divStyle = document.querySelector<HTMLDivElement>(
-        `.${thumbnailPreviewClassName}`,
-      )!.style;
-      const imgStyle = document.querySelector<HTMLImageElement>(
-        `.${thumbnailPreviewClassName}>img`,
-      )!.style;
+      switch (event.key) {
+        case 'z':
+          dispatch(decreaseAngle());
+          break;
+        case 'x':
+          dispatch(increaseAngle());
+          break;
+        case 'Enter': {
+          const { x, y, width, height, rotate } = cropper.getData();
 
-      dispatch(
-        addCrop({
-          params: { x, y, width, height, rotate },
-          divStyle: {
-            width: divStyle.width,
-            height: divStyle.height,
-          },
-          imgStyle: {
-            width: imgStyle.width,
-            height: imgStyle.height,
-            transform: imgStyle.transform,
-          },
-        }),
-      );
+          // 本来であれば cropper.getCropedCanvas() で画像データを直に取得したいところだが、
+          // soruceImage のサイズが大きすぎると、NS_ERROR_FAILURE というエラーが出るなどして、
+          // 取得に失敗することがある。
+          // そこで、サムネイルと同じ大きさのダミーのプレビュー thumbnailPreviewClassName を用意して、
+          // crop 時にそのスタイルを取得し、サムネイル表示に利用するようにする。
+          const divStyle = document.querySelector<HTMLDivElement>(
+            `.${thumbnailPreviewClassName}`,
+          )!.style;
+          const imgStyle = document.querySelector<HTMLImageElement>(
+            `.${thumbnailPreviewClassName}>img`,
+          )!.style;
+
+          dispatch(
+            addCrop({
+              params: { x, y, width, height, rotate },
+              divStyle: {
+                width: divStyle.width,
+                height: divStyle.height,
+              },
+              imgStyle: {
+                width: imgStyle.width,
+                height: imgStyle.height,
+                transform: imgStyle.transform,
+              },
+            }),
+          );
+          break;
+        }
+        default:
+          break;
+      }
     },
     [cropperRef, dispatch, thumbnailPreviewClassName],
   );

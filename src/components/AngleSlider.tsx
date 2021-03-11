@@ -10,7 +10,8 @@ import styles from './AngleSlider.module.css';
 const formatter = (angle: number) => `${angle.toFixed(1)}°`;
 
 const AngleSlider: React.FC = () => {
-  const hasImage = useSelector(state => Boolean(state.sourceImage.url));
+  const sourceImage = useSelector(state => state.sourceImage);
+  const hasImage = Boolean(sourceImage.url);
 
   const dispatch = useDispatch();
   const onChange = useCallback(
@@ -30,6 +31,7 @@ const AngleSlider: React.FC = () => {
       max={10}
       step={0.1}
       defaultValue={0}
+      value={sourceImage.angle}
       onChange={onChange}
       tipFormatter={formatter}
       tooltipPlacement="bottom"
