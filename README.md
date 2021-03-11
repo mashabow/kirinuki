@@ -16,6 +16,12 @@
 
 切り抜きデータ内の値は、[cropper.js の `getData()`](https://github.com/fengyuanchen/cropperjs/tree/v1.5.6#getdatarounded) の戻り値と同じ形式になっています。
 
+### Key bindings
+
+- カーソルキー：画像を移動
+- `z`/`x`：画像を回転
+- ⌘ カーソルキー：切り抜き範囲のサイズを変更
+
 ## Development
 
 [Create React App](https://create-react-app.dev/) と [Redux Toolkit](https://redux-toolkit.js.org/) を使っています。
