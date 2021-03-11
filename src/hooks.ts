@@ -93,8 +93,9 @@ export const useKeyBindings = (
           break;
         }
         default:
-          break;
+          return;
       }
+      event.preventDefault();
     },
     [cropperRef, dispatch, thumbnailPreviewClassName],
   );
