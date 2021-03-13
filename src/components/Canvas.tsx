@@ -27,7 +27,7 @@ const Canvas = ({ cropperRef, previews }: Props) => {
       }}
       src={sourceImage.url ?? undefined}
       // Cropper.js options
-      autoCropArea={0.2}
+      autoCropArea={0.6}
       preview={previews.map(s => `.${s}`).join(', ')}
       dragMode="move"
       toggleDragModeOnDblclick={false}
