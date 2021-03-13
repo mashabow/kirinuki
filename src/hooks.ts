@@ -2,7 +2,7 @@ import { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addCrop } from './features/crops';
-import { decreaseAngle, increaseAngle } from './features/sourceImage';
+import { rotate } from './features/sourceImage';
 
 export const useKeyBindings = (
   cropperRef: React.MutableRefObject<Cropper | null>,
@@ -32,10 +32,16 @@ export const useKeyBindings = (
 
         // 画像回転
         case 'z':
-          dispatch(decreaseAngle());
+          dispatch(rotate(-0.1));
           break;
         case 'x':
-          dispatch(increaseAngle());
+          dispatch(rotate(0.1));
+          break;
+        case 'Z':
+          dispatch(rotate(-90));
+          break;
+        case 'X':
+          dispatch(rotate(90));
           break;
 
         // 範囲拡大・縮小

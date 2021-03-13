@@ -24,20 +24,11 @@ const slice = createSlice({
     setAngle: (state, action: PayloadAction<number>) => {
       state.angle = action.payload;
     },
-    increaseAngle: (state) => {
-      state.angle = state.angle + 0.1;
-    },
-    decreaseAngle: (state) => {
-      state.angle = state.angle - 0.1;
+    rotate: (state, action: PayloadAction<number>) => {
+      state.angle = state.angle + action.payload;
     },
   },
 });
 
 export default slice.reducer;
-export const {
-  open,
-  close,
-  setAngle,
-  increaseAngle,
-  decreaseAngle,
-} = slice.actions;
+export const { open, close, setAngle, rotate } = slice.actions;
