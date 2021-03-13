@@ -7,6 +7,9 @@ import { setAngle } from '../features/sourceImage';
 
 import styles from './AngleSlider.module.css';
 
+const MAX_ANGLE = 10;
+const MIN_ANGLE = -MAX_ANGLE;
+
 const formatter = (angle: number) => `${angle.toFixed(1)}°`;
 
 const AngleSlider: React.FC = () => {
@@ -16,19 +19,23 @@ const AngleSlider: React.FC = () => {
   const dispatch = useDispatch();
   const onChange = useCallback(
     (value: SliderValue) => {
-      if (typeof value === 'number') {
+      if (
+        typeof value === 'number' &&
+        MIN_ANGLE <= sourceImage.angle &&
+        sourceImage.angle <= MAX_ANGLE
+      ) {
         dispatch(setAngle(value));
       }
     },
-    [dispatch],
+    [dispatch, sourceImage.angle],
   );
 
   return (
     <Slider
       className={styles.AngleSlider}
       disabled={!hasImage}
-      min={-10}
-      max={10}
+      min={MIN_ANGLE}
+      max={MAX_ANGLE}
       step={0.1}
       defaultValue={0}
       value={sourceImage.angle}
